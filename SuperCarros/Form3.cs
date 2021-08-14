@@ -154,11 +154,11 @@ namespace SuperCarros
             //If se a textBoxEditVel não estiver vazia, fazer o update da velocidade máx. no BD.
             if (textBoxEditVel.Text != string.Empty)
             {
-                SqlCommand cmd3 = new SqlCommand("UPDATE Carro SET velMax = " + textBoxEditVel.Text + " WHERE id =" + textBoxEditID.Text, sqlConexao);
+                SqlCommand cmd4 = new SqlCommand("UPDATE Carro SET velMax = " + textBoxEditVel.Text + " WHERE id =" + textBoxEditID.Text, sqlConexao);
                 try
                 {
                     sqlConexao.Open();
-                    cmd3.ExecuteNonQuery();
+                    cmd4.ExecuteNonQuery();
                     sqlConexao.Close();
                     dataGridViewEditarCartas.DataSource = getData(); //Atualizar a BD no DataGrid.
                     MessageBox.Show("Velocidade Máx. atualizada!");
@@ -166,6 +166,78 @@ namespace SuperCarros
                 catch
                 {
                     MessageBox.Show("Problema ao atualizar a Velocidade Máx.!");
+                }
+            }
+
+            //If se a textBoxEditPot não estiver vazia, fazer o update da potência no BD.
+            if (textBoxEditPot.Text != string.Empty)
+            {
+                SqlCommand cmd5 = new SqlCommand("UPDATE Carro SET potencia = " + textBoxEditPot.Text + " WHERE id =" + textBoxEditID.Text, sqlConexao);
+                try
+                {
+                    sqlConexao.Open();
+                    cmd5.ExecuteNonQuery();
+                    sqlConexao.Close();
+                    dataGridViewEditarCartas.DataSource = getData(); //Atualizar a BD no DataGrid.
+                    MessageBox.Show("Potência atualizada!");
+                }
+                catch
+                {
+                    MessageBox.Show("Problema ao atualizar a Potência!");
+                }
+            }
+
+            //If se a textBoxEditMot não estiver vazia, fazer o update do motor no BD.
+            if (textBoxEditMot.Text != string.Empty)
+            {
+                SqlCommand cmd6 = new SqlCommand("UPDATE Carro SET motor = " + textBoxEditMot.Text + " WHERE id =" + textBoxEditID.Text, sqlConexao);
+                try
+                {
+                    sqlConexao.Open();
+                    cmd6.ExecuteNonQuery();
+                    sqlConexao.Close();
+                    dataGridViewEditarCartas.DataSource = getData(); //Atualizar a BD no DataGrid.
+                    MessageBox.Show("Motor atualizado!");
+                }
+                catch
+                {
+                    MessageBox.Show("Problema ao atualizar o Motor!");
+                }
+            }
+
+            //If se a textBoxEditAce não estiver vazia, fazer o update da aceleração no BD.
+            if (textBoxEditAce.Text != string.Empty)
+            {
+                SqlCommand cmd7 = new SqlCommand("UPDATE Carro SET aceleracaoTempo = " + textBoxEditAce.Text + " WHERE id =" + textBoxEditID.Text, sqlConexao);
+                try
+                {
+                    sqlConexao.Open();
+                    cmd7.ExecuteNonQuery();
+                    sqlConexao.Close();
+                    dataGridViewEditarCartas.DataSource = getData(); //Atualizar a BD no DataGrid.
+                    MessageBox.Show("Aceleração atualizada!");
+                }
+                catch
+                {
+                    MessageBox.Show("Problema ao atualizar a Aceleração!");
+                }
+            }
+
+            //If se a textBoxEditPes não estiver vazia, fazer o update do peso no BD.
+            if (textBoxEditPes.Text != string.Empty)
+            {
+                SqlCommand cmd8 = new SqlCommand("UPDATE Carro SET peso = " + textBoxEditPes.Text + " WHERE id =" + textBoxEditID.Text, sqlConexao);
+                try
+                {
+                    sqlConexao.Open();
+                    cmd8.ExecuteNonQuery();
+                    sqlConexao.Close();
+                    dataGridViewEditarCartas.DataSource = getData(); //Atualizar a BD no DataGrid.
+                    MessageBox.Show("Peso atualizado!");
+                }
+                catch
+                {
+                    MessageBox.Show("Problema ao atualizar o Peso!");
                 }
             }
         }
