@@ -32,12 +32,12 @@ namespace SuperCarros
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoJogo));
             this.dataGridViewNovoJogo = new System.Windows.Forms.DataGridView();
             this.groupBoxDigID = new System.Windows.Forms.GroupBox();
-            this.labelC1 = new System.Windows.Forms.Label();
-            this.labelC2 = new System.Windows.Forms.Label();
-            this.labelC3 = new System.Windows.Forms.Label();
-            this.textBoxC1 = new System.Windows.Forms.TextBox();
-            this.textBoxC2 = new System.Windows.Forms.TextBox();
             this.textBoxC3 = new System.Windows.Forms.TextBox();
+            this.textBoxC2 = new System.Windows.Forms.TextBox();
+            this.textBoxC1 = new System.Windows.Forms.TextBox();
+            this.labelC3 = new System.Windows.Forms.Label();
+            this.labelC2 = new System.Windows.Forms.Label();
+            this.labelC1 = new System.Windows.Forms.Label();
             this.buttonSelCarNJ = new System.Windows.Forms.Button();
             this.buttonRdmCarNJ = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNovoJogo)).BeginInit();
@@ -68,25 +68,29 @@ namespace SuperCarros
             this.groupBoxDigID.TabStop = false;
             this.groupBoxDigID.Text = "Digite os ids das cartas:";
             // 
-            // labelC1
+            // textBoxC3
             // 
-            this.labelC1.AutoSize = true;
-            this.labelC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelC1.Location = new System.Drawing.Point(6, 32);
-            this.labelC1.Name = "labelC1";
-            this.labelC1.Size = new System.Drawing.Size(73, 20);
-            this.labelC1.TabIndex = 0;
-            this.labelC1.Text = "Carta 1:";
+            this.textBoxC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxC3.Location = new System.Drawing.Point(511, 29);
+            this.textBoxC3.Name = "textBoxC3";
+            this.textBoxC3.Size = new System.Drawing.Size(100, 26);
+            this.textBoxC3.TabIndex = 4;
             // 
-            // labelC2
+            // textBoxC2
             // 
-            this.labelC2.AutoSize = true;
-            this.labelC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelC2.Location = new System.Drawing.Point(211, 32);
-            this.labelC2.Name = "labelC2";
-            this.labelC2.Size = new System.Drawing.Size(73, 20);
-            this.labelC2.TabIndex = 1;
-            this.labelC2.Text = "Carta 2:";
+            this.textBoxC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxC2.Location = new System.Drawing.Point(286, 29);
+            this.textBoxC2.Name = "textBoxC2";
+            this.textBoxC2.Size = new System.Drawing.Size(100, 26);
+            this.textBoxC2.TabIndex = 3;
+            // 
+            // textBoxC1
+            // 
+            this.textBoxC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxC1.Location = new System.Drawing.Point(81, 29);
+            this.textBoxC1.Name = "textBoxC1";
+            this.textBoxC1.Size = new System.Drawing.Size(100, 26);
+            this.textBoxC1.TabIndex = 2;
             // 
             // labelC3
             // 
@@ -98,29 +102,25 @@ namespace SuperCarros
             this.labelC3.TabIndex = 2;
             this.labelC3.Text = "Carta 3:";
             // 
-            // textBoxC1
+            // labelC2
             // 
-            this.textBoxC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxC1.Location = new System.Drawing.Point(81, 29);
-            this.textBoxC1.Name = "textBoxC1";
-            this.textBoxC1.Size = new System.Drawing.Size(100, 26);
-            this.textBoxC1.TabIndex = 2;
+            this.labelC2.AutoSize = true;
+            this.labelC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelC2.Location = new System.Drawing.Point(211, 32);
+            this.labelC2.Name = "labelC2";
+            this.labelC2.Size = new System.Drawing.Size(73, 20);
+            this.labelC2.TabIndex = 1;
+            this.labelC2.Text = "Carta 2:";
             // 
-            // textBoxC2
+            // labelC1
             // 
-            this.textBoxC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxC2.Location = new System.Drawing.Point(286, 29);
-            this.textBoxC2.Name = "textBoxC2";
-            this.textBoxC2.Size = new System.Drawing.Size(100, 26);
-            this.textBoxC2.TabIndex = 3;
-            // 
-            // textBoxC3
-            // 
-            this.textBoxC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxC3.Location = new System.Drawing.Point(511, 29);
-            this.textBoxC3.Name = "textBoxC3";
-            this.textBoxC3.Size = new System.Drawing.Size(100, 26);
-            this.textBoxC3.TabIndex = 4;
+            this.labelC1.AutoSize = true;
+            this.labelC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelC1.Location = new System.Drawing.Point(6, 32);
+            this.labelC1.Name = "labelC1";
+            this.labelC1.Size = new System.Drawing.Size(73, 20);
+            this.labelC1.TabIndex = 0;
+            this.labelC1.Text = "Carta 1:";
             // 
             // buttonSelCarNJ
             // 
@@ -132,6 +132,7 @@ namespace SuperCarros
             this.buttonSelCarNJ.TabIndex = 2;
             this.buttonSelCarNJ.Text = "Selecionar Cartas";
             this.buttonSelCarNJ.UseVisualStyleBackColor = false;
+            this.buttonSelCarNJ.Click += new System.EventHandler(this.buttonSelCarNJ_Click);
             // 
             // buttonRdmCarNJ
             // 
