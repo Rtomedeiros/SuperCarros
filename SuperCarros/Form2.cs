@@ -15,7 +15,8 @@ namespace SuperCarros
     {
         int[] idP1 = new int[3];
         int[] idCom = new int[3];
-        int idmax;
+        int idmax; 
+        string teste;
 
         public FormNovoJogo()
         {
@@ -44,21 +45,17 @@ namespace SuperCarros
         private void buttonSelCarNJ_Click(object sender, EventArgs e)
         {
             SqlConnection sqlConexao = new SqlConnection("Data Source=DESKTOP-BLNRK54\\SQLEXPRESS;Initial Catalog=bd_SuperCarros;Integrated Security=True");
-            //SqlCommand cmd = new SqlCommand("SELECT MAX(id) FROM Carro", sqlConexao);
             try
             {
                 sqlConexao.Open();
-                SqlCommand cmd = new SqlCommand("SELECT id, imagem, marca, nome, velMax, potencia, motor, aceleracaoTempo, peso FROM Carro WHERE id = ?", sqlConexao);
-                cmd.Parameters.Clear();
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = textBoxC1.Text;
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("SELECT id, marca, nome, velMax, potencia, motor, aceleracaoTempo, peso FROM Carro WHERE id =" + textBoxC1.Text, sqlConexao);
+                //cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
                 //Usar o SqlDataReader para receber os dados da carta 1 selecionada.
-                SqlDataReader dtreader;
-                dtreader = cmd.ExecuteReader();
-                //Insere as informações recebidas do banco para os componentes do form.
-                dtreader.Read();
-                textBoxC3.Text = dtreader.GetString(0);
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
 
+                textBoxC2.Text = dr[2].ToString();
                 sqlConexao.Close();
             }
             catch

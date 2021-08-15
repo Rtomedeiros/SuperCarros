@@ -61,6 +61,15 @@ namespace SuperCarros
                     sqlConexao.Close();
                     dataGridViewEditarCartas.DataSource = getData(); //Atualizar a BD no DataGrid.
                     MessageBox.Show("Nova Carta criada!");
+                    //Limpar os campos após criar a carta.
+                    pictureBoxUpImg.Image = null;
+                    textBoxEditMar.Text = String.Empty;
+                    textBoxEditNom.Text = String.Empty;
+                    textBoxEditVel.Text = String.Empty;
+                    textBoxEditPot.Text = String.Empty;
+                    textBoxEditMot.Text = String.Empty;
+                    textBoxEditAce.Text = String.Empty;
+                    textBoxEditPes.Text = String.Empty;
                 }
                 catch
                 {
