@@ -133,14 +133,14 @@ namespace SuperCarros
             // novoJogoToolStripMenuItem
             // 
             this.novoJogoToolStripMenuItem.Name = "novoJogoToolStripMenuItem";
-            this.novoJogoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoJogoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.novoJogoToolStripMenuItem.Text = "Novo Jogo";
             this.novoJogoToolStripMenuItem.Click += new System.EventHandler(this.novoJogoToolStripMenuItem_Click);
             // 
             // editarCartasToolStripMenuItem
             // 
             this.editarCartasToolStripMenuItem.Name = "editarCartasToolStripMenuItem";
-            this.editarCartasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarCartasToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.editarCartasToolStripMenuItem.Text = "Editar Cartas";
             this.editarCartasToolStripMenuItem.Click += new System.EventHandler(this.editarCartasToolStripMenuItem_Click);
             // 
@@ -458,6 +458,7 @@ namespace SuperCarros
             this.buttonSelCarta.TabIndex = 6;
             this.buttonSelCarta.Text = "Selecionar Carta";
             this.buttonSelCarta.UseVisualStyleBackColor = false;
+            this.buttonSelCarta.Click += new System.EventHandler(this.buttonSelCarta_Click);
             // 
             // groupBoxC1
             // 
