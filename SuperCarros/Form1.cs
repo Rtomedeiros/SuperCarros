@@ -14,7 +14,7 @@ namespace SuperCarros
     public partial class FormIntro : Form
     {
         int[] idP1 = new int[3];  //vetor de inteiro para guardar os IDs das 3 cartas selecionadas pelo jogador;
-        //int[] idCom = new int[3];  //vetor de inteiro para guardar os IDs das 3 cartas selecionadas pelo computador;
+        int[] idCom = new int[3];  //vetor de inteiro para guardar os IDs das 3 cartas selecionadas pelo computador;
         //int idmax; //inteiro para guardar o maior valor de id.
         bool NovoJogo = false;
 
@@ -49,11 +49,14 @@ namespace SuperCarros
         }
 
         //Criando uma função pública para fazer o "recebimento" do valor de id selecionado no FormNovoJogo.
-        public void idSelNovoJogo(int[] idP1Sel)
+        public void idSelNovoJogo(int[] idP1Sel, int[] idComSel)
         {
             idP1[0] = idP1Sel[0];
             idP1[1] = idP1Sel[1];
             idP1[2] = idP1Sel[2];
+            idCom[0] = idComSel[0];
+            idCom[1] = idComSel[1];
+            idCom[2] = idComSel[2];
         }
 
         /*//Criando uma função para realizar o jogo.
@@ -64,7 +67,9 @@ namespace SuperCarros
 
         private void buttonSelCarta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("idP1[0]: " + idP1[0] + "\nidP1[1]: " + idP1[1] + "\nidP1[2]: " + idP1[2]);
+            MessageBox.Show("idP1[0]: " + idP1[0] + "   idCom[0]: " + idCom[0] + 
+                "\nidP1[1]: " + idP1[1] + "   idCom[1]: " + idCom[1] + 
+                "\nidP1[2]: " + idP1[2] + "   idCom[2]: " + idCom[2]);
         }
     }
 }

@@ -44,7 +44,9 @@ namespace SuperCarros
         private void buttonSelCarNJ_Click(object sender, EventArgs e)
         {
             FormIntro frmIntro = new FormIntro();
-            
+            var rand = new Random(); //Instanciando o gerador de números aleatórios usando o valor fornecido pelo sistema como semente.
+            bool idsCompDiferentes = false;
+
             SqlConnection sqlConexao = new SqlConnection("Data Source=DESKTOP-BLNRK54\\SQLEXPRESS;Initial Catalog=bd_SuperCarros;Integrated Security=True");
             //If se a textBoxC1 não estiver vazia, receber o dado do ID selecionado para a CARTA 1.
             if (textBoxC1.Text != string.Empty)
@@ -145,12 +147,45 @@ namespace SuperCarros
                 //São ids diferentes.
                 //MessageBox.Show("São diferentes!");
 
-                frmIntro.idSelNovoJogo(idP1Sel); //Enviando o valor de idP1Sel para idP1 no FormIntro.
+                //While para rodar até escolher 3 ids de cartas para o computador diferentes entre sí e, diferentes do jogador.
+                while(idsCompDiferentes == false)
+                {
+                    //for para rodar e atribuir os 3 ids randomicamente ao Computador.
+                    for (int i = 0; i < 3; i++)
+                    {
+                        idComSel[i] = rand.Next(1, (idmaxSel+1)); //Atribuindo valores de id randomicamente para o Computador (Dentro dos ids disponíveis no BD).
+                    }
+                    //Se para verificar se os ids random selecionados para o computador são diferentes entre si.
+                    if ((idComSel[0] != idComSel[1]) && (idComSel[0] != idComSel[2]) && (idComSel[1] != idComSel[2]))
+                    {
+                        //Os ids Selecionador para o Computador são diferentes entre sí.
+                        
+                        //Se para verificar se o idComSel[0] é diferente dos ids selecionados pelo Jogador.
+                        if((idComSel[0] != idP1Sel[0]) && (idComSel[0] != idP1Sel[1]) && (idComSel[0] != idP1Sel[2]))
+                        {
+                            //Se para verificar se o idComSel[1] é diferente dos ids selecionados pelo Jogador.
+                            if ((idComSel[1] != idP1Sel[0]) && (idComSel[1] != idP1Sel[1]) && (idComSel[1] != idP1Sel[2]))
+                            {
+                                //Se para verificar se o idComSel[2] é diferente dos ids selecionados pelo Jogador.
+                                if ((idComSel[2] != idP1Sel[0]) && (idComSel[2] != idP1Sel[1]) && (idComSel[2] != idP1Sel[2]))
+                                {
+                                    idsCompDiferentes = true; //Condição para parar o while.
+                                }
+                            }
+                        }
+                    } 
+                }
+
+                /*MessageBox.Show("idP1Sel[0]: " + idP1Sel[0] + "   idComSel[0]: " + idComSel[0] +
+                "\nidP1Sel[1]: " + idP1Sel[1] + "   idComSel[1]: " + idComSel[1] +
+                "\nidP1Sel[2]: " + idP1Sel[2] + "   idComSel[2]: " + idComSel[2]);*/
+
+                frmIntro.idSelNovoJogo(idP1Sel, idComSel); //Enviando o valor de idP1Sel para idP1 e idComSel para idCom, no FormIntro.
 
                 frmIntro.ShowDialog();  //Abre uma nova tela de jogo.
-                //frmIntro.Refresh(); //Atualizar a Tela principal.
+                /*//frmIntro.Refresh(); //Atualizar a Tela principal.
                 //this.Close(); //Fechar a tela de Seleção de cartas - Novo Jogo.
-                //this.DialogResult = DialogResult.Cancel;
+                //this.DialogResult = DialogResult.Cancel;*/
             }
         }
     }
