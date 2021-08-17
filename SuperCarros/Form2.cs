@@ -17,6 +17,12 @@ namespace SuperCarros
         int[] idComSel = new int[3];  //vetor de inteiro para guardar os IDs das 3 cartas selecionadas pelo computador;
         int idmaxSel; //inteiro para guardar o maior valor de id.
 
+        //Criando esses ints para fazer uma conferencia final se os valores que estão escritos nas textBoxC1, C2 e C3
+        //estão mesmo dentro dos limites dos ids possíveis.
+        //Pois o usuário pode fechar a tela de new game e retornar para a tela de seleção de cartas e a variável idP1Sel já não é mais 0.
+        //Criando estas variáveis para buscar corrigir este erro.
+        int confereTBC1, confereTBC2, confereTBC3;
+
         public FormNovoJogo()
         {
             InitializeComponent();
@@ -177,19 +183,33 @@ namespace SuperCarros
                                 }
                             }
                         }
-                    } 
+                    }
                 }
 
                 /*MessageBox.Show("idP1Sel[0]: " + idP1Sel[0] + "   idComSel[0]: " + idComSel[0] +
                 "\nidP1Sel[1]: " + idP1Sel[1] + "   idComSel[1]: " + idComSel[1] +
                 "\nidP1Sel[2]: " + idP1Sel[2] + "   idComSel[2]: " + idComSel[2]);*/
 
-                frmIntro.idSelNovoJogo(idP1Sel, idComSel); //Enviando o valor de idP1Sel para idP1 e idComSel para idCom, no FormIntro.
+                confereTBC1 = int.Parse(textBoxC1.Text);
+                confereTBC2 = int.Parse(textBoxC2.Text);
+                confereTBC3 = int.Parse(textBoxC3.Text);
+                //MessageBox.Show("confereTBC1 = " + confereTBC1 + "\nconfereTBC2 = " + confereTBC2 + "\nconfereTBC3 = " + confereTBC3);
+                //Se os ids selecionados pelo jogador estão entro do intervalo de ids possível, ir para a tela de novo jogo.
+                if (((confereTBC1 >= 1) && (confereTBC1 <= idmaxSel)) && ((confereTBC2 >= 1) && (confereTBC2 <= idmaxSel)) && ((confereTBC3 >= 1) && (confereTBC3 <= idmaxSel)))
+                {
+                    //Ids selecionados do jogador estão dentro do intervalo de ids possível.
+                    
+                    frmIntro.idSelNovoJogo(idP1Sel, idComSel); //Enviando o valor de idP1Sel para idP1 e idComSel para idCom, no FormIntro.
 
-                frmIntro.ShowDialog();  //Abre uma nova tela de jogo.
-                /*//frmIntro.Refresh(); //Atualizar a Tela principal.
-                //this.Close(); //Fechar a tela de Seleção de cartas - Novo Jogo.
-                //this.DialogResult = DialogResult.Cancel;*/
+                    frmIntro.ShowDialog();  //Abre uma nova tela de jogo.
+                    /*//frmIntro.Refresh(); //Atualizar a Tela principal.
+                    //this.Close(); //Fechar a tela de Seleção de cartas - Novo Jogo.
+                    //this.DialogResult = DialogResult.Cancel;*/
+                }
+                else
+                {
+                    MessageBox.Show("Ids selecionados pelo jogador não estão dentro dos ids disponíveis.");
+                }
             }
         }
 
