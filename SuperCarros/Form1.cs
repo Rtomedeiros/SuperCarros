@@ -55,7 +55,8 @@ namespace SuperCarros
                 //Os ids do jogador são válidos.
                 //MessageBox.Show("Ids armazenados com sucesso!");
 
-                mostrarCartasP1();  //Chamando a Função para mostrar as cartas do Jogador na Tela do Jogo.
+                mostrarCartasP1();  //Chamando a Função para mostrar as cartas do Jogador na Tela do Jogo (Dentro dela já atribui as cartas do jogador nas variáveis).
+                atribuirCartasCom();  //Chamando a Função para atribuir as cartas do Computador nas variáveis.
 
             }
         }
@@ -97,7 +98,7 @@ namespace SuperCarros
         //Função para mostrar na tela do jogo as cartas do Jogador.
         private void mostrarCartasP1()
         {
-            //Fazer a atribuição dos demais dados das cartas do Jogador do BD para as variáveis.
+            //Fazer a atribuição dos demais dados das cartas do Jogador, do BD para as variáveis.
             SqlConnection sqlConexao = new SqlConnection("Data Source=DESKTOP-BLNRK54\\SQLEXPRESS;Initial Catalog=bd_SuperCarros;Integrated Security=True");
 
             //Mostrar CARTA 1 do Jogador.
@@ -200,14 +201,108 @@ namespace SuperCarros
             }
         }
 
+        //Função para atribuir os dados das cartas do Computador nas variáveis dele.
+        private void atribuirCartasCom()
+        {
+            //Fazer a atribuição dos demais dados das cartas do Computador, do BD para as variáveis.
+            SqlConnection sqlConexao = new SqlConnection("Data Source=DESKTOP-BLNRK54\\SQLEXPRESS;Initial Catalog=bd_SuperCarros;Integrated Security=True");
+
+            //Atribuir dados da CARTA 1 do Computador para as suas respectivas variáveis.
+            try
+            {
+                sqlConexao.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT imagem, marca, nome, velMax, potencia, motor, aceleracaoTempo, peso FROM Carro WHERE id =" + idCom[0], sqlConexao);
+                //cmd.CommandType = CommandType.Text;
+                cmd1.ExecuteNonQuery();
+                //Usar o SqlDataReader para receber os dados da CARTA 1 selecionada.
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+                dr1.Read();
+                imgCom[0] = dr1[0].ToString();  //Atribuindo o dado de indice 0 (imagem) do comando Sql para uma string.
+                marcaCom[0] = dr1[1].ToString();  //Atribuindo o dado de indice 1 (marca) do comando Sql para uma string.
+                nomeCom[0] = dr1[2].ToString();  //Atribuindo o dado de indice 2 (nome) do comando Sql para uma string.
+                velMaxCom[0] = int.Parse(dr1[3].ToString());  //Atribuindo o dado de indice 3 (velMax) do comando Sql para um inteiro.
+                potCom[0] = int.Parse(dr1[4].ToString());  //Atribuindo o dado de indice 4 (potencia) do comando Sql para um inteiro.
+                motorCom[0] = int.Parse(dr1[5].ToString());  //Atribuindo o dado de indice 5 (motor) do comando Sql para um inteiro.
+                aceCom[0] = double.Parse(dr1[6].ToString());  //Atribuindo o dado de indice 6 (aceleracao) do comando Sql para um double.
+                pesoCom[0] = int.Parse(dr1[7].ToString()); //Atribuindo o dado de indice 7 (peso) do comando Sql para um inteiro.
+                sqlConexao.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível atribuir os dados da Carta 1 do Computador!");
+            }
+
+            //Atribuir dados da CARTA 2 do Computador para as suas respectivas variáveis.
+            try
+            {
+                sqlConexao.Open();
+                SqlCommand cmd2 = new SqlCommand("SELECT imagem, marca, nome, velMax, potencia, motor, aceleracaoTempo, peso FROM Carro WHERE id =" + idCom[1], sqlConexao);
+                //cmd.CommandType = CommandType.Text;
+                cmd2.ExecuteNonQuery();
+                //Usar o SqlDataReader para receber os dados da CARTA 2 selecionada.
+                SqlDataReader dr2 = cmd2.ExecuteReader();
+                dr2.Read();
+                imgCom[1] = dr2[0].ToString();  //Atribuindo o dado de indice 0 (imagem) do comando Sql para uma string.
+                marcaCom[1] = dr2[1].ToString();  //Atribuindo o dado de indice 1 (marca) do comando Sql para uma string.
+                nomeCom[1] = dr2[2].ToString();  //Atribuindo o dado de indice 2 (nome) do comando Sql para uma string.
+                velMaxCom[1] = int.Parse(dr2[3].ToString());  //Atribuindo o dado de indice 3 (velMax) do comando Sql para um inteiro.
+                potCom[1] = int.Parse(dr2[4].ToString());  //Atribuindo o dado de indice 4 (potencia) do comando Sql para um inteiro.
+                motorCom[1] = int.Parse(dr2[5].ToString());  //Atribuindo o dado de indice 5 (motor) do comando Sql para um inteiro.
+                aceCom[1] = double.Parse(dr2[6].ToString());  //Atribuindo o dado de indice 6 (aceleracao) do comando Sql para um double.
+                pesoCom[1] = int.Parse(dr2[7].ToString()); //Atribuindo o dado de indice 7 (peso) do comando Sql para um inteiro.
+                sqlConexao.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível atribuir os dados da Carta 2 do Computador!");
+            }
+
+            //Atribuir dados da CARTA 3 do Computador para as suas respectivas variáveis.
+            try
+            {
+                sqlConexao.Open();
+                SqlCommand cmd3 = new SqlCommand("SELECT imagem, marca, nome, velMax, potencia, motor, aceleracaoTempo, peso FROM Carro WHERE id =" + idCom[2], sqlConexao);
+                //cmd.CommandType = CommandType.Text;
+                cmd3.ExecuteNonQuery();
+                //Usar o SqlDataReader para receber os dados da CARTA 3 selecionada.
+                SqlDataReader dr3 = cmd3.ExecuteReader();
+                dr3.Read();
+                imgCom[2] = dr3[0].ToString();  //Atribuindo o dado de indice 0 (imagem) do comando Sql para uma string.
+                marcaCom[2] = dr3[1].ToString();  //Atribuindo o dado de indice 1 (marca) do comando Sql para uma string.
+                nomeCom[2] = dr3[2].ToString();  //Atribuindo o dado de indice 2 (nome) do comando Sql para uma string.
+                velMaxCom[2] = int.Parse(dr3[3].ToString());  //Atribuindo o dado de indice 3 (velMax) do comando Sql para um inteiro.
+                potCom[2] = int.Parse(dr3[4].ToString());  //Atribuindo o dado de indice 4 (potencia) do comando Sql para um inteiro.
+                motorCom[2] = int.Parse(dr3[5].ToString());  //Atribuindo o dado de indice 5 (motor) do comando Sql para um inteiro.
+                aceCom[2] = double.Parse(dr3[6].ToString());  //Atribuindo o dado de indice 6 (aceleracao) do comando Sql para um double.
+                pesoCom[2] = int.Parse(dr3[7].ToString()); //Atribuindo o dado de indice 7 (peso) do comando Sql para um inteiro.
+                sqlConexao.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível atribuir os dados da Carta 3 do Computador!");
+            }
+        }
+
         private void buttonSelCarta_Click(object sender, EventArgs e)
         {
             //MessageBox para visualizar os ids selecionados para o jogador e o computador.
-            MessageBox.Show("idP1[0]: " + idP1[0] + "   idCom[0]: " + idCom[0] + 
+            /*MessageBox.Show("idP1[0]: " + idP1[0] + "   idCom[0]: " + idCom[0] + 
                 "\nidP1[1]: " + idP1[1] + "   idCom[1]: " + idCom[1] + 
-                "\nidP1[2]: " + idP1[2] + "   idCom[2]: " + idCom[2]);
+                "\nidP1[2]: " + idP1[2] + "   idCom[2]: " + idCom[2]);*/
+
             //MessageBox para visualizar os caminhos das imagens das cartas do jogador e computador.
-            MessageBox.Show("imgP1[0]: "+ imgP1[0] + "\n\nimgP1[1]: " + imgP1[1] + "\n\nimgP1[2]: " + imgP1[2]);
+            //MessageBox.Show("imgP1[0]: "+ imgP1[0] + "\n\nimgP1[1]: " + imgP1[1] + "\n\nimgP1[2]: " + imgP1[2]);
+            //MessageBox.Show("imgCom[0]: "+ imgCom[0] + "\n\nimgCom[1]: " + imgCom[1] + "\n\nimgCom[2]: " + imgCom[2]);
+
+            //MessageBox para visualizar os dados das cartas do computador.
+            /*MessageBox.Show("        idCom[0]: " + idCom[0] + "         idCom[1]: " + idCom[1] + "                  idCom[2]: " + idCom[2] +
+                "\n marcaCom[0]: " + marcaCom[0] + "         marcaCom[1]: " + marcaCom[1] + "        marcaCom[2]: " + marcaCom[2] +
+                "\n  nomeCom[0]: " + nomeCom[0] + "           nomeCom[1]: " + nomeCom[1] + "          nomeCom[2]: " + nomeCom[2] +
+                "\nvelMaxCom[0]: " + velMaxCom[0] + "       velMaxCom[1]: " + velMaxCom[1] + "      velMaxCom[2]: " + velMaxCom[2] +
+                "\n   potCom[0]: " + potCom[0] + "             potCom[1]: " + potCom[1] + "            potCom[2]: " + potCom[2] +
+                "\n motorCom[0]: " + motorCom[0] + "         motorCom[1]: " + motorCom[1] + "        motorCom[2]: " + motorCom[2] +
+                "\n   aceCom[0]: " + aceCom[0] + "             aceCom[1]: " + aceCom[1] + "            aceCom[2]: " + aceCom[2] +
+                "\n  pesoCom[0]: " + pesoCom[0] + "           pesoCom[1]: " + pesoCom[1] + "          pesoCom[2]: " + pesoCom[2]);*/
 
         }
 
