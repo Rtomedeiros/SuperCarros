@@ -38,6 +38,9 @@ namespace SuperCarros
         double[] aceCom = new double[3];
         int[] pesoCom = new int[3];
 
+        //Criar as imagens para atribuir o caminho e mostrar as imagens dos carros;
+        Image arquivoIMGP1, arquivoIMGCom;
+
         public FormIntro()
         {
             InitializeComponent();
@@ -204,18 +207,70 @@ namespace SuperCarros
                 "\nidP1[1]: " + idP1[1] + "   idCom[1]: " + idCom[1] + 
                 "\nidP1[2]: " + idP1[2] + "   idCom[2]: " + idCom[2]);
             //MessageBox para visualizar os caminhos das imagens das cartas do jogador e computador.
-            MessageBox.Show("imgP1[0]: "+ imgP1[0] + "\nimgP1[1]: " + imgP1[1] + "\nimgP1[2]: " + imgP1[2]);
+            MessageBox.Show("imgP1[0]: "+ imgP1[0] + "\n\nimgP1[1]: " + imgP1[1] + "\n\nimgP1[2]: " + imgP1[2]);
 
         }
 
         private void radioButtonC1_CheckedChanged(object sender, EventArgs e)
         {
+            //Se estiver marcada o radioButtonC1, mostrar os dados da Carta 1 no groupBox Principal do Jogador.
 
+            //Se o imgP1[0] não estiver nulo, mostrar os dados da Carta 1.
+            if (imgP1[0] != null)
+            {
+                arquivoIMGP1 = Image.FromFile(imgP1[0]);
+                pictureBoxP1.Image = arquivoIMGP1;
+                textBoxP1Marca.Text = marcaP1[0];
+                textBoxP1Nome.Text = nomeP1[0];
+                textBoxP1Vel.Text = velMaxP1[0].ToString();
+                textBoxP1Pot.Text = potP1[0].ToString();
+                textBoxP1Mot.Text = motorP1[0].ToString();
+                textBoxP1Ace.Text = aceP1[0].ToString();
+                textBoxP1Pes.Text = pesoP1[0].ToString();
+            }
         }
 
         private void textBoxC1Marca_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButtonC2_CheckedChanged(object sender, EventArgs e)
+        {
+            //Se estiver marcada o radioButtonC2, mostrar os dados da Carta 2 no groupBox Principal do Jogador.
+
+            //Se o imgP1[1] não estiver nulo, mostrar os dados da Carta 2.
+            if (imgP1[1] != null)
+            {
+                arquivoIMGP1 = Image.FromFile(imgP1[1]);
+                pictureBoxP1.Image = arquivoIMGP1;
+                textBoxP1Marca.Text = marcaP1[1];
+                textBoxP1Nome.Text = nomeP1[1];
+                textBoxP1Vel.Text = velMaxP1[1].ToString();
+                textBoxP1Pot.Text = potP1[1].ToString();
+                textBoxP1Mot.Text = motorP1[1].ToString();
+                textBoxP1Ace.Text = aceP1[1].ToString();
+                textBoxP1Pes.Text = pesoP1[1].ToString();
+            }
+        }
+
+        private void radioButtonC3_CheckedChanged(object sender, EventArgs e)
+        {
+            //Se estiver marcada o radioButtonC3, mostrar os dados da Carta 3 no groupBox Principal do Jogador.
+
+            //Se o imgP1[2] não estiver nulo, mostrar os dados da Carta 3.
+            if (imgP1[2] != null)
+            {
+                arquivoIMGP1 = Image.FromFile(imgP1[2]);
+                pictureBoxP1.Image = arquivoIMGP1;
+                textBoxP1Marca.Text = marcaP1[2];
+                textBoxP1Nome.Text = nomeP1[2];
+                textBoxP1Vel.Text = velMaxP1[2].ToString();
+                textBoxP1Pot.Text = potP1[2].ToString();
+                textBoxP1Mot.Text = motorP1[2].ToString();
+                textBoxP1Ace.Text = aceP1[2].ToString();
+                textBoxP1Pes.Text = pesoP1[2].ToString();
+            }
         }
 
         private void textBoxP1Nome_TextChanged(object sender, EventArgs e)

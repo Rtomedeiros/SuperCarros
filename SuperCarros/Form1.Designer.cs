@@ -809,6 +809,7 @@ namespace SuperCarros
             this.radioButtonC3.TabStop = true;
             this.radioButtonC3.Text = "Carta 3";
             this.radioButtonC3.UseVisualStyleBackColor = true;
+            this.radioButtonC3.CheckedChanged += new System.EventHandler(this.radioButtonC3_CheckedChanged);
             // 
             // radioButtonC2
             // 
@@ -821,6 +822,7 @@ namespace SuperCarros
             this.radioButtonC2.TabStop = true;
             this.radioButtonC2.Text = "Carta 2";
             this.radioButtonC2.UseVisualStyleBackColor = true;
+            this.radioButtonC2.CheckedChanged += new System.EventHandler(this.radioButtonC2_CheckedChanged);
             // 
             // radioButtonC1
             // 
