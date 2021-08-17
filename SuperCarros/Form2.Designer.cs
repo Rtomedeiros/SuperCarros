@@ -144,6 +144,7 @@ namespace SuperCarros
             this.buttonRdmCarNJ.TabIndex = 3;
             this.buttonRdmCarNJ.Text = "Randomizar Cartas";
             this.buttonRdmCarNJ.UseVisualStyleBackColor = false;
+            this.buttonRdmCarNJ.Click += new System.EventHandler(this.buttonRdmCarNJ_Click);
             // 
             // FormNovoJogo
             // 

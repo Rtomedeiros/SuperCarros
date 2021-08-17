@@ -16,7 +16,7 @@ namespace SuperCarros
         int[] idP1 = new int[3];  //vetor de inteiro para guardar os IDs das 3 cartas selecionadas pelo jogador;
         int[] idCom = new int[3];  //vetor de inteiro para guardar os IDs das 3 cartas selecionadas pelo computador;
         //int idmax; //inteiro para guardar o maior valor de id.
-        bool NovoJogo = false;
+        //bool NovoJogo = false;
 
         public FormIntro()
         {
@@ -48,7 +48,7 @@ namespace SuperCarros
             frmEditarCartas.ShowDialog();
         }
 
-        //Criando uma função pública para fazer o "recebimento" do valor de id selecionado no FormNovoJogo.
+        //Criando uma função pública para fazer o "recebimento" dos valores de IDs selecionados no FormNovoJogo.
         public void idSelNovoJogo(int[] idP1Sel, int[] idComSel)
         {
             idP1[0] = idP1Sel[0];

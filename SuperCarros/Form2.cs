@@ -51,6 +51,7 @@ namespace SuperCarros
             //If se a textBoxC1 não estiver vazia, receber o dado do ID selecionado para a CARTA 1.
             if (textBoxC1.Text != string.Empty)
             {
+                //Lendo no BD o id da Carta 1, e verificando se ele existe.
                 try
                 {
                     sqlConexao.Open();
@@ -74,6 +75,7 @@ namespace SuperCarros
             //If se a textBoxC2 não estiver vazia, receber o dado do ID selecionado para a CARTA 2.
             if (textBoxC2.Text != string.Empty)
             {
+                //Lendo no BD o id da Carta 2, e verificando se ele existe.
                 try
                 {
                     sqlConexao.Open();
@@ -97,6 +99,7 @@ namespace SuperCarros
             //If se a textBoxC3 não estiver vazia, receber o dado do ID selecionado para a CARTA 3.
             if (textBoxC3.Text != string.Empty)
             {
+                //Lendo no BD o id da Carta 3, e verificando se ele existe.
                 try
                 {
                     sqlConexao.Open();
@@ -117,6 +120,7 @@ namespace SuperCarros
                 }
             }
 
+            //Lendo no BD o valor máximo de ID.
             try
             {
                 sqlConexao.Open();
@@ -186,6 +190,54 @@ namespace SuperCarros
                 /*//frmIntro.Refresh(); //Atualizar a Tela principal.
                 //this.Close(); //Fechar a tela de Seleção de cartas - Novo Jogo.
                 //this.DialogResult = DialogResult.Cancel;*/
+            }
+        }
+
+        private void buttonRdmCarNJ_Click(object sender, EventArgs e)
+        {
+            var rand = new Random(); //Instanciando o gerador de números aleatórios usando o valor fornecido pelo sistema como semente.
+            bool idsP1Diferentes = false;
+
+            SqlConnection sqlConexao = new SqlConnection("Data Source=DESKTOP-BLNRK54\\SQLEXPRESS;Initial Catalog=bd_SuperCarros;Integrated Security=True");
+            //Lendo no BD o valor máximo de ID.
+            try
+            {
+                sqlConexao.Open();
+                SqlCommand cmd = new SqlCommand("SELECT MAX(id) FROM Carro", sqlConexao);
+                //cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+                //Usar o SqlDataReader para receber os dados do MAIOR ID.
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                //textBoxC2.Text = dr[0].ToString();
+                idmaxSel = int.Parse(dr[0].ToString());  //Atribuindo o dado de indice 0 (id) do comando Sql para um inteiro.
+                sqlConexao.Close();
+                //MessageBox.Show("idMaxSel = " + idmaxSel);
+            }
+            catch
+            {
+                MessageBox.Show("Erro ao buscar o valor máximo do id!");
+            }
+
+            //While para rodar até escolher 3 ids de cartas para o jogador diferentes entre sí e colocar-los nos TextBoxC1, C2 e C3.
+            while (idsP1Diferentes == false)
+            {
+                //for para rodar e atribuir os 3 ids randomicamente ao Jogador.
+                for (int i = 0; i < 3; i++)
+                {
+                    idP1Sel[i] = rand.Next(1, (idmaxSel + 1)); //Atribuindo valores de id randomicamente para o Jogador (Dentro dos ids disponíveis no BD).
+                }
+                //Se para verificar se os ids random selecionados para o computador são diferentes entre si.
+                if ((idP1Sel[0] != idP1Sel[1]) && (idP1Sel[0] != idP1Sel[2]) && (idP1Sel[1] != idP1Sel[2]))
+                {
+                    //Os ids Selecionados para o Jogador são diferentes entre sí.
+                    
+                    //Colocando os ids Selecionados de forma randomica nos TextBoxC1, C2 e C3.
+                    textBoxC1.Text = idP1Sel[0].ToString();
+                    textBoxC2.Text = idP1Sel[1].ToString();
+                    textBoxC3.Text = idP1Sel[2].ToString();
+                    idsP1Diferentes = true;
+                }
             }
         }
     }
