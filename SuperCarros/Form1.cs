@@ -90,7 +90,7 @@ namespace SuperCarros
         }
 
         /*//Criando uma função para realizar o jogo.
-        private void NovoGame()
+        private void comecarNovoJogo()
         {
 
         }*/
@@ -286,9 +286,10 @@ namespace SuperCarros
         private void buttonSelCarta_Click(object sender, EventArgs e)
         {
             //MessageBox para visualizar os ids selecionados para o jogador e o computador.
-            /*MessageBox.Show("idP1[0]: " + idP1[0] + "   idCom[0]: " + idCom[0] + 
-                "\nidP1[1]: " + idP1[1] + "   idCom[1]: " + idCom[1] + 
-                "\nidP1[2]: " + idP1[2] + "   idCom[2]: " + idCom[2]);*/
+            MessageBox.Show("Ids selecionados do Jogador e Computador:" +
+                "\nCarta1_P1: " + idP1[0] + "   Carta1_Comp: " + idCom[0] +
+                "\nCarta2_P1: " + idP1[1] + "   Carta2_Comp: " + idCom[1] + 
+                "\nCarta3_P1: " + idP1[2] + "   Carta3_Comp: " + idCom[2]);
 
             //MessageBox para visualizar os caminhos das imagens das cartas do jogador e computador.
             //MessageBox.Show("imgP1[0]: "+ imgP1[0] + "\n\nimgP1[1]: " + imgP1[1] + "\n\nimgP1[2]: " + imgP1[2]);
